@@ -14,6 +14,16 @@
     alert("Сәлем, " + name + "!");
   }
 </script>
+  <h2 id="title">Бұл — менің алғашқы сайтым!</h2>
+
+<button onclick="changeText()">Тақырыпты өзгерту</button>
+
+<script>
+  function changeText() {
+    document.getElementById("title").textContent =
+      "Мен сайт жасауды үйреніп жүрмін!";
+  }
+</script>
 <body>
 <h1 style="color: red;">Сәлем! Менің парақшама қош келдің!</h1>
 <p style="color: yellow; font-size: 50px;">Мен веб-сайт жасауды үйреніп жүрмін.</p>
