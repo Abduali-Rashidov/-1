@@ -76,5 +76,18 @@ button:hover {
     }
   </script>
     </div>
+  
+<script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("./sw.js")
+        .then(() => console.log("Қосымша дайын"))
+        .catch((error) =>
+          console.error("Қате:", error)
+        );
+    });
+  }
+</script>
+
 </body>
 </html>
