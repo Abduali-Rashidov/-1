@@ -4,11 +4,14 @@
   <meta charset="UTF-8">
   <title>№1 практика</title>
 </head>
-  <button onclick="showMessage()">Сәлем, қалайсың?</button>
+ <input id="name" placeholder="Атыңды жаз">
+
+<button onclick="greet()">Сәлемдесу</button>
 
 <script>
-  function showMessage() {
-    alert("Сәлем, барлығы жақсы рахмет");
+  function greet() {
+    const name = document.getElementById("name").value;
+    alert("Сәлем, " + name + "!");
   }
 </script>
 <body>
