@@ -1,72 +1,99 @@
+
 <!DOCTYPE html>
 <html lang="kk">
 <head>
   <meta charset="UTF-8">
-<title>№1 практика</title>
-  <style>
-  body {
-    background-color: #f0f4f8;
-    font-family: Arial, sans-serif;
-    padding: 30px;
-    text-align: center;
-  }
-
-  h1 {
-    color: #1d4ed8;
-  }
-
-  p {
-    color: #166534;
-    font-size: 20px;
-  }
-
-  button {
-    background-color: #2563eb;
-    color: white;
-    padding: 10px 16px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-  }
-button:hover {
-  background-color: #1d4ed8;
-}
-  input {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-  }
-    .card {
-  background-color: white;
-  max-width: 500px;
-  margin: 30px auto;
-  padding: 30px;
-  border-radius: 16px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
-</style>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#2563eb">
+
+  <title>Менің алғашқы қосымшам</title>
+
+  <link rel="manifest" href="./manifest.json">
+  <link rel="icon" href="./icon-192.png" type="image/png">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #f0f4f8;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      text-align: center;
+      margin: 0;
+      min-height: 100vh;
+    }
+
+    h1 {
+      color: #1d4ed8;
+    }
+
+    p {
+      color: #166534;
+      font-size: 18px;
+    }
+
+    button {
+      background-color: #2563eb;
+      color: white;
+      padding: 12px 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin: 5px;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #1d4ed8;
+    }
+
+    input {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      width: 100%;
+      max-width: 300px;
+      margin: 8px 0;
+      font-size: 16px;
+    }
+
+    .card {
+      background-color: white;
+      max-width: 500px;
+      margin: 30px auto;
+      padding: 25px;
+      border-radius: 16px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+  </style>
 </head>
+
 <body>
-  <div class="card">
-  <h1>
-    Сәлем! Менің парақшама қош келдің!
-  </h1>
+  <main class="card">
+    <h1>Сәлем! Менің парақшама қош келдің!</h1>
 
-  <p>
-    Мен веб-сайт жасауды үйреніп жүрмін.
-  </p>
+    <p>Мен веб-сайт жасауды үйреніп жүрмін.</p>
 
-  <input id="name" placeholder="Атыңды жаз">
-  <button onclick="greet()">Сәлемдесу</button>
+    <input id="name" type="text" placeholder="Атыңды жаз">
+    <br>
+    <button onclick="greet()">Сәлемдесу</button>
 
-  <h2 id="title">Бұл — менің алғашқы сайтым!</h2>
-  <button onclick="changeText()">Тақырыпты өзгерту</button>
+    <h2 id="title">Бұл — менің алғашқы сайтым!</h2>
+
+    <button onclick="changeText()">Тақырыпты өзгерту</button>
+  </main>
 
   <script>
     function greet() {
-      const name = document.getElementById("name").value;
+      const name = document.getElementById("name").value.trim();
+
+      if (!name) {
+        alert("Алдымен атыңды жаз!");
+        return;
+      }
+
       alert("Сәлем, " + name + "!");
     }
 
@@ -74,20 +101,17 @@ button:hover {
       document.getElementById("title").textContent =
         "Мен сайт жасауды үйреніп жүрмін!";
     }
-  </script>
-    </div>
-  
-<script>
-  if ("serviceWorker" in navigator) {
-    window.addEventListener("load", () => {
-      navigator.serviceWorker.register("./sw.js")
-        .then(() => console.log("Қосымша дайын"))
-        .catch((error) =>
-          console.error("Қате:", error)
-        );
-    });
-  }
-</script>
 
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", async () => {
+        try {
+          await navigator.serviceWorker.register("./sw.js");
+          console.log("Service Worker іске қосылды");
+        } catch (error) {
+          console.error("Service Worker қатесі:", error);
+        }
+      });
+    }
+  </script>
 </body>
 </html>
