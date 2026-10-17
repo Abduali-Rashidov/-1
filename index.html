@@ -4,28 +4,31 @@
   <meta charset="UTF-8">
   <title>№1 практика</title>
 </head>
- <input id="name" placeholder="Атыңды жаз">
-
-<button onclick="greet()">Сәлемдесу</button>
-
-<script>
-  function greet() {
-    const name = document.getElementById("name").value;
-    alert("Сәлем, " + name + "!");
-  }
-</script>
-  <h2 id="title">Бұл — менің алғашқы сайтым!</h2>
-
-<button onclick="changeText()">Тақырыпты өзгерту</button>
-
-<script>
-  function changeText() {
-    document.getElementById("title").textContent =
-      "Мен сайт жасауды үйреніп жүрмін!";
-  }
-</script>
 <body>
-<h1 style="color: red;">Сәлем! Менің парақшама қош келдің!</h1>
-<p style="color: yellow; font-size: 50px;">Мен веб-сайт жасауды үйреніп жүрмін.</p>
+  <h1 style="color: red;">
+    Сәлем! Менің парақшама қош келдің!
+  </h1>
+
+  <p style="color: yellow; font-size: 50px;">
+    Мен веб-сайт жасауды үйреніп жүрмін.
+  </p>
+
+  <input id="name" placeholder="Атыңды жаз">
+  <button onclick="greet()">Сәлемдесу</button>
+
+  <h2 id="title">Бұл — менің алғашқы сайтым!</h2>
+  <button onclick="changeText()">Тақырыпты өзгерту</button>
+
+  <script>
+    function greet() {
+      const name = document.getElementById("name").value;
+      alert("Сәлем, " + name + "!");
+    }
+
+    function changeText() {
+      document.getElementById("title").textContent =
+        "Мен сайт жасауды үйреніп жүрмін!";
+    }
+  </script>
 </body>
 </html>
